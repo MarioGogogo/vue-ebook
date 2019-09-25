@@ -10,8 +10,10 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "epubjs": "^0.3.85",
+    "less-loader": "^5.0.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
+    "vue-svg-icon": "^1.2.9",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

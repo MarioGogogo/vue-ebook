@@ -2,6 +2,10 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+// 引入图标
+import "./assets/iconfont/iconfont.css";
+//引入字体
+import "./assets/fonts/font.css";
 
 Vue.config.productionTip = false;
 
