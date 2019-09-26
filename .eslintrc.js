@@ -3,13 +3,12 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['plugin:vue/essential', '@vue/prettier'],
+  'extends': [
+    'plugin:vue/essential',
+    'eslint:recommended'
+  ],
   rules: {
-    'no-console': 'off',
-    //强制使用单引号
-    quotes: ['error', 'single'],
-    //强制不使用分号结尾
-    semi: ['error', 'never'],
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
   parserOptions: {

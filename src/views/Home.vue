@@ -16,7 +16,7 @@ global.ePub = Epub;
 export default {
   name: "home",
   mounted() {
-    this.book = new Epub("/择天记.epub");
+    this.book = new Epub("/2018_Book_Nanoinformatics.epub");
     console.log(this.book);
     this.book
       .renderTo("area", {
