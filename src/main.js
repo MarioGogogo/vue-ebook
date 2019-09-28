@@ -8,7 +8,7 @@ import "./assets/iconfont/iconfont.css";
 //引入字体
 import "./assets/fonts/font.css";
 // 引入全局样式
-import "./assets/global.scss";
+import "./assets/styles/global.scss";
 
 Vue.config.productionTip = false;
 

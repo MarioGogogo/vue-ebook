@@ -7,7 +7,7 @@
 - [x] 3-3 项目依赖包下载
 - [x] 3-4 准备 Web 字体
 - [x] 3-5 viewport 配置和 vm 设置
-- [x] 3-6 global.scss 和 reset.scss 设置
+- [x] 3-6 styles/global.scss 和 reset.scss 设置
 - [x] 3-7 引入 vuex+vue-devtools 试看
 - [x] 3-8 搭建静态资源服务器
 - [x] 4-1 阅读器需求分析

@@ -12,7 +12,7 @@ import Epub from "epubjs";
 global.epub = Epub;
 export default {
   computed: {
-    ...mapGetters(["fileName"])
+    ...mapGetters(["fileName", "menuVisible"])
   },
   methods: {
     initEpub() {
@@ -65,13 +65,20 @@ export default {
       });
     },
     prevPage() {
+      if (this.rendition) {
+        this.rendition.prev();
+      }
       console.log("上一页");
     },
     nextPage() {
+      if (this.rendition) {
+        this.rendition.next();
+      }
       console.log("下一页");
     },
     showTitleAndMenu() {
-      console.log("显示标题和菜单栏");
+      console.log("切换标题和菜单栏");
+      this.$store.dispatch("setMenuVisible", !this.menuVisible);
     }
   },
   mounted() {
@@ -85,7 +92,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/global.scss";
+@import "../../assets/styles/global.scss";
+.ebook-read {
+  margin-top: 40px;
+}
 #read {
   border: 1px solid red;
 }

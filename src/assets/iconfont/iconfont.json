@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "7688038",
+      "name": "购物车-23",
+      "font_class": "gouwuche",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "9214975",
       "name": "成功_line",
       "font_class": "chenggong",
@@ -102,6 +109,13 @@
       "font_class": "WIFI",
       "unicode": "e882",
       "unicode_decimal": 59522
+    },
+    {
+      "icon_id": "10186634",
+      "name": "more",
+      "font_class": "more",
+      "unicode": "e6ed",
+      "unicode_decimal": 59117
     },
     {
       "icon_id": "10972214",
