@@ -12,7 +12,7 @@ export default new Router({
     {
       path: "/ebook",
       name: "ebook",
-      component: () => import("./views/ebook"),
+      component: () => import("./views/ebook/index.vue"),
       children: [
         {
           path: ":fileName",
