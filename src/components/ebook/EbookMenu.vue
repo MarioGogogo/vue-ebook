@@ -1,14 +1,66 @@
 <template>
-  <div>底部组件</div>
+  <transition name="slide-up">
+    <div class="menu-wrapper" :class="{'hide-box-shadow':!menuVisible}" v-show="menuVisible">
+      <div class="icon-wrapper">
+        <span class="iconfont icon-cebianlan" @click="showSetting(3)"></span>
+      </div>
+      <div class="icon-wrapper">
+        <span class="iconfont icon-xiangkan" @click="showSetting(2)"></span>
+      </div>
+      <div class="icon-wrapper">
+        <span class="iconfont icon-icontubiao" @click="showSetting(1)"></span>
+      </div>
+      <div class="icon-wrapper">
+        <span class="iconfont icon-ziti" @click="showSetting(0)"></span>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  name: "EbookMenu"
+  name: "EbookMenu",
+  computed: {
+    ...mapGetters(["menuVisible"])
+  },
+  methods: {
+    showSetting(index) {
+      console.log("显示设置", index);
+    }
+  }
 };
 </script>
 
 
 <style lang="scss" scoped>
 @import "../../assets/styles/global.scss";
+.menu-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  box-shadow: 0 -8px 8px rgba(0, 0, 0, 0.15);
+  font-size: 22px;
+  .iconfont {
+    font-size: 50px;
+  }
+  &.hide-box-shadow {
+    box-shadow: none;
+  }
+  .icon-wrapper {
+    flex: 1;
+    @include center;
+    .icon-progress {
+      font-size: 24px;
+    }
+    .icon-A {
+      font-size: 20px;
+    }
+  }
+}
 </style>
