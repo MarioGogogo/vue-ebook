@@ -19,11 +19,10 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { ebookMixin } from "../../utils/minin";
 export default {
   name: "EbookMenu",
-  computed: {
-    ...mapGetters(["menuVisible"])
-  },
+  mixins: [ebookMixin],
   methods: {
     showSetting(index) {
       console.log("显示设置", index);

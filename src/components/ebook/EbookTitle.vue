@@ -21,11 +21,10 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { ebookMixin } from "../../utils/minin";
 export default {
   name: "EbookTitle",
-  computed: {
-    ...mapGetters(["menuVisible"])
-  }
+  mixins: [ebookMixin]
 };
 </script>
 

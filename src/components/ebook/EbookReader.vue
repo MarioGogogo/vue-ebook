@@ -9,11 +9,10 @@
 <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import Epub from "epubjs";
+import { ebookMixin } from "../../utils/minin";
 global.epub = Epub;
 export default {
-  computed: {
-    ...mapGetters(["fileName", "menuVisible"])
-  },
+  mixins: [ebookMixin],
   methods: {
     initEpub() {
       const baseUrl = "http://192.168.0.111:8080/#/ebook";
