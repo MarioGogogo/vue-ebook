@@ -80,15 +80,18 @@ export default {
     },
     showTitleAndMenu() {
       console.log("切换标题和菜单栏");
-      this.$store.dispatch("setMenuVisible", !this.menuVisible);
+      this.setMenuVisible(!this.menuVisible);
     }
   },
   mounted() {
     const fileName = this.$route.params.fileName.split("|").join("/");
 
-    this.$store.dispatch("setFileName", fileName.split(".")[0]).then(() => {
+    this.setFileName(fileName.split(".")[0]).then(() => {
       this.initEpub();
     });
+    // this.$store.dispatch("setFileName", fileName.split(".")[0]).then(() => {
+    //   this.initEpub();
+    // });
   }
 };
 </script>
