@@ -67,12 +67,15 @@ export default {
     prevPage() {
       if (this.rendition) {
         this.rendition.prev();
+        this.menuVisible && this.showTitleAndMenu();
       }
       console.log("上一页");
     },
     nextPage() {
       if (this.rendition) {
         this.rendition.next();
+        this.showTitleAndMenu();
+        this.menuVisible && this.showTitleAndMenu();
       }
       console.log("下一页");
     },
