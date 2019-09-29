@@ -21,7 +21,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { ebookMixin } from "../../utils/minin";
+import { ebookMixin } from "../../utils/mixin";
 export default {
   name: "EbookTitle",
   mixins: [ebookMixin]

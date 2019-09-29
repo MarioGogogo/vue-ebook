@@ -1,28 +1,36 @@
 <template>
-  <transition name="slide-up">
-    <div class="menu-wrapper" :class="{'hide-box-shadow':!menuVisible}" v-show="menuVisible">
-      <div class="icon-wrapper">
-        <span class="iconfont icon-cebianlan" @click="showSetting(3)"></span>
+  <div>
+    <transition name="slide-up">
+      <div class="menu-wrapper" :class="{'hide-box-shadow':!menuVisible}" v-show="menuVisible">
+        <div class="icon-wrapper">
+          <span class="iconfont icon-cebianlan" @click="showSetting(3)"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="iconfont icon-xiangkan" @click="showSetting(2)"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="iconfont icon-icontubiao" @click="showSetting(1)"></span>
+        </div>
+        <div class="icon-wrapper">
+          <span class="iconfont icon-ziti" @click="showSetting(0)"></span>
+        </div>
       </div>
-      <div class="icon-wrapper">
-        <span class="iconfont icon-xiangkan" @click="showSetting(2)"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="iconfont icon-icontubiao" @click="showSetting(1)"></span>
-      </div>
-      <div class="icon-wrapper">
-        <span class="iconfont icon-ziti" @click="showSetting(0)"></span>
-      </div>
-    </div>
-  </transition>
+    </transition>
+    <ebook-setting-font></ebook-setting-font>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { ebookMixin } from "../../utils/minin";
+import { ebookMixin } from "../../utils/mixin";
+import EbookSettingFont from "./EbookSettingFont";
+
 export default {
   name: "EbookMenu",
   mixins: [ebookMixin],
+  components: {
+    EbookSettingFont
+  },
   methods: {
     showSetting(index) {
       console.log("显示设置", index);

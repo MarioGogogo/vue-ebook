@@ -9,7 +9,7 @@
 <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import Epub from "epubjs";
-import { ebookMixin } from "../../utils/minin";
+import { ebookMixin } from "../../utils/mixin";
 global.epub = Epub;
 export default {
   mixins: [ebookMixin],
