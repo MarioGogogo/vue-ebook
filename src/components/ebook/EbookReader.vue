@@ -7,7 +7,6 @@
 
 
 <script>
-import { mapGetters, mapActions, mapMutations } from "vuex";
 import Epub from "epubjs";
 import { ebookMixin } from "../../utils/mixin";
 global.epub = Epub;
@@ -21,6 +20,7 @@ export default {
 
       const file = "/2018_Book_HousingEstatesInEurope.epub";
       this.book = new Epub(file);
+      this.setCurrentBook(this.book);
       console.log(this.book);
 
       this.rendition = this.book.renderTo("read", {
@@ -78,8 +78,12 @@ export default {
       }
       console.log("下一页");
     },
+
     showTitleAndMenu() {
       console.log("切换标题和菜单栏");
+      if (this.menuVisible) {
+        this.setSettingVisible(-1); //隐藏字号设置面板
+      }
       this.setMenuVisible(!this.menuVisible);
     }
   },

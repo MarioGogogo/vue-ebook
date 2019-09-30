@@ -40,72 +40,75 @@
 
 <script>
 import { ebookMixin } from "../../utils/mixin";
+import { FONT_SIZE_LIST } from "../../utils/book";
 export default {
   name: "EbookSettingFont",
   mixins: [ebookMixin],
   data() {
     return {
       styleLeft: {},
-      styleRight: {}
+      styleRight: {},
+      fontSizeList: FONT_SIZE_LIST
     };
   },
   watch: {
     settingVisible(v) {
       if (v === 0) {
         this.$nextTick(() => {
-          this.genStyle();
+          // this.genStyle();
+          console.log("设置拖动", this.$refs.left);
         });
       }
     }
   },
   methods: {
+    setFontSize(fontSize) {
+      // this.genStyle(fontSize);
+      this.currentBook.rendition.themes.fontSize(fontSize);
+    },
     genStyle() {
       const left = this.$refs.left.getBoundingClientRect().width;
       const right = this.$refs.left.getBoundingClientRect().width;
       const leftText = this.$refs.leftText.getBoundingClientRect().width;
       const rightText = this.$refs.leftText.getBoundingClientRect().width;
       const item = this.$refs.item[0].getBoundingClientRect().width;
-      this.styleLeft = {
-        marginLeft: (left + item - leftText) / 2 + "px",
-        fontSize: this.fontSizeList[0].fontSize + "px"
-      };
-      this.styleRight = {
-        marginRight: (right + item - rightText) / 2 + "px",
-        fontSize:
-          this.fontSizeList[this.fontSizeList.length - 1].fontSize + "px"
-      };
+      // this.styleLeft = {
+      //   marginLeft: (left + item - leftText) / 2 + "px",
+      //   fontSize: this.fontSizeList[0].fontSize + "px"
+      // };
+      // this.styleRight = {
+      //   marginRight: (right + item - rightText) / 2 + "px",
+      //   fontSize:
+      //     this.fontSizeList[this.fontSizeList.length - 1].fontSize + "px"
+      // };
     }
   }
 };
 </script>
 
 
-
-
-
-
-
-
-
 <style lang="scss" scoped>
-@import "../../assets/styles/global";
-
+@import "../../assets/styles/global.scss";
+// * {
+//   outline: 1px solid rgb(241, 135, 135);
+// }
 .setting-wrapper {
   position: absolute;
-  bottom: 48px;
+  bottom: 80px;
   left: 0;
   z-index: 190;
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 9px;
-  box-shadow: 0 -px 8pxrgba (0, 0, 0, 0.15);
+  background-color: #fff;
+  height: 90px;
+  box-shadow: 0 -8px 8px rgba(0, 0, 0, 0.15);
   .setting-font-size {
     flex: 2;
     display: flex;
     height: 100%;
     .preview {
-      flex: 0 0 4px;
+      flex: 0 0 40px;
       @include center;
     }
     .select {

@@ -1,7 +1,11 @@
 <template>
   <div>
     <transition name="slide-up">
-      <div class="menu-wrapper" :class="{'hide-box-shadow':!menuVisible}" v-show="menuVisible">
+      <div
+        class="menu-wrapper"
+        :class="{'hide-box-shadow':!menuVisible || settingVisible >= 0}"
+        v-show="menuVisible"
+      >
         <div class="icon-wrapper">
           <span class="iconfont icon-cebianlan" @click="showSetting(3)"></span>
         </div>
@@ -34,6 +38,7 @@ export default {
   methods: {
     showSetting(index) {
       console.log("显示设置", index);
+      this.setSettingVisible(index);
     }
   }
 };
