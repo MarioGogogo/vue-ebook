@@ -35,6 +35,15 @@ export function getFontSize(fileName) {
 export function saveFontSize(fileName, fontSize) {
   setBookObject(fileName, "fontSize", fontSize);
 }
+//国际语言
+export function getLocale() {
+  return getLocalStorage("locale");
+}
+
+export function saveLocale(locale) {
+  return setLocalStorage("locale", locale);
+}
+
 //设置每一本书籍信息
 export function setBookObject(fileName, key, value) {
   let book = {};
