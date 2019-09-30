@@ -28,6 +28,11 @@
 <script>
 import { ebookMixin } from "../../utils/mixin";
 import { FONT_FAMILY } from "../../utils/book";
+import {
+  setLocalStorage,
+  getLocalStorage,
+  saveFontFamily
+} from "../../utils/localStorage";
 export default {
   name: "EbookSettingFontPopup",
   mixins: [ebookMixin],
@@ -39,6 +44,7 @@ export default {
   methods: {
     setFontFamily(fontFamily) {
       this.setDefaultFontFamily(fontFamily);
+      saveFontFamily(this.fileName, fontFamily);
       if (fontFamily === "Default") {
         this.currentBook.rendition.themes.font("Microsoft YaHei");
       } else {

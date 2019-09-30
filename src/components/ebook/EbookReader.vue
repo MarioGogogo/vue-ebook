@@ -9,6 +9,13 @@
 <script>
 import Epub from "epubjs";
 import { ebookMixin } from "../../utils/mixin";
+import {
+  getFontFamily,
+  saveFontFamily,
+  getFontSize,
+  saveFontSize
+} from "../../utils/localStorage";
+import { getDiffieHellman } from "crypto";
 global.epub = Epub;
 export default {
   mixins: [ebookMixin],
@@ -29,7 +36,10 @@ export default {
         method: "default" //微信
       });
 
-      this.rendition.display();
+      this.rendition.display().then(() => {
+        this.initFontFamily();
+        this.initFontSize();
+      });
 
       // 翻页为iframe绑定事件
       this.rendition.on("touchstart", event => {
@@ -73,8 +83,30 @@ export default {
           contents.addStylesheet("http://192.168.8.93:8000/fonts/gaobai.css"),
           contents.addStylesheet("http://192.168.8.93:8000/fonts/hksn.css"),
           contents.addStylesheet("http://192.168.8.93:8000/fonts/xiaolong.css")
-        ]).then(() => {});
+        ]).then(() => {
+          console.log("字体加载完");
+        });
       });
+    },
+    //初始化字体设置
+    initFontFamily() {
+      const font = getFontFamily(this.fileName);
+      if (!font) {
+        saveFontFamily(this.fileName, this.defaultFontFamily);
+      } else {
+        this.rendition.themes.font(font);
+        this.setDefaultFontFamily(font);
+      }
+    },
+    //初始化字号
+    initFontSize() {
+      const fontsize = getFontSize(this.fileName);
+      if (!fontsize) {
+        saveFontSize(this.fileName, this.defaultFontSize);
+      } else {
+        this.rendition.themes.fontSize(fontsize);
+        this.setDefaultFontSize(fontsize);
+      }
     },
     prevPage() {
       if (this.rendition) {
