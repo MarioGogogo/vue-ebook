@@ -31,7 +31,7 @@
           <span class="setting-font-family-text">{{defaultFontFamily}}</span>
         </div>
         <div class="setting-font-family-icon-wrapper">
-          <span class="icon-forward"></span>
+          <span class="iconfont icon-arrow-ios-forward-outline"></span>
         </div>
       </div>
     </div>
@@ -64,7 +64,12 @@ export default {
   methods: {
     setFontSize(fontSize) {
       // this.genStyle(fontSize);
+      this.setDefaultFontSize(fontSize);
       this.currentBook.rendition.themes.fontSize(fontSize);
+    },
+    showFontFamilySetting() {
+      console.log("字体弹窗");
+      this.setFontFamilyVisible(true);
     },
     genStyle() {
       const left = this.$refs.left.getBoundingClientRect().width;
@@ -72,15 +77,15 @@ export default {
       const leftText = this.$refs.leftText.getBoundingClientRect().width;
       const rightText = this.$refs.leftText.getBoundingClientRect().width;
       const item = this.$refs.item[0].getBoundingClientRect().width;
-      // this.styleLeft = {
-      //   marginLeft: (left + item - leftText) / 2 + "px",
-      //   fontSize: this.fontSizeList[0].fontSize + "px"
-      // };
-      // this.styleRight = {
-      //   marginRight: (right + item - rightText) / 2 + "px",
-      //   fontSize:
-      //     this.fontSizeList[this.fontSizeList.length - 1].fontSize + "px"
-      // };
+      this.styleLeft = {
+        marginLeft: (left + item - leftText) / 2 + "px",
+        fontSize: this.fontSizeList[0].fontSize + "px"
+      };
+      this.styleRight = {
+        marginRight: (right + item - rightText) / 2 + "px",
+        fontSize:
+          this.fontSizeList[this.fontSizeList.length - 1].fontSize + "px"
+      };
     }
   }
 };
@@ -89,9 +94,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/styles/global.scss";
-// * {
-//   outline: 1px solid rgb(241, 135, 135);
-// }
+
 .setting-wrapper {
   position: absolute;
   bottom: 80px;
@@ -101,7 +104,7 @@ export default {
   flex-direction: column;
   width: 100%;
   background-color: #fff;
-  height: 90px;
+  height: 100px;
   box-shadow: 0 -8px 8px rgba(0, 0, 0, 0.15);
   .setting-font-size {
     flex: 2;
@@ -162,13 +165,16 @@ export default {
   }
   .setting-font-family {
     flex: 1;
-    font-size: 14px;
+    font-size: 30px;
     @include center;
     .setting-font-family-text-wrapper {
       @include center;
     }
     .setting-font-family-icon-wrapper {
       @include center;
+    }
+    .iconfont {
+      font-size: 30px;
     }
   }
 }

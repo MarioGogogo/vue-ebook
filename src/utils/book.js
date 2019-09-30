@@ -12,8 +12,9 @@ export const FONT_SIZE_LIST = [
 // 默认字体;
 export const FONT_FAMILY = [
   { font: "Default" },
-  { font: "Cabin" },
-  { font: "Days One" },
-  { font: "Montserrat" },
-  { font: "Tangerine" }
+  { font: "Arial" },
+  { font: "bebas" },
+  { font: "gaobai" },
+  { font: "hksn" },
+  { font: "xiaolong" }
 ];

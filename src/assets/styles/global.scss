@@ -20,12 +20,6 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
-.popup-slide-up-enter-to,
-.popup-slide-up-leave {
-  transform: translate3d(0, 0, 0);
-  opacity: 1;
-}
-
 .slide-down-enter-active,
 .slide-down-leave-active,
 .slide-up-enter-active,
@@ -43,11 +37,17 @@ body {
 .slide-up-leave-to {
   transform: translate3d(0, 138px, 0);
 }
-
+//初始位置应该是在整个高度的 0
 .popup-slide-up-enter,
 .popup-slide-up-leave-to {
   transform: translate3d(0, 100%, 0);
   opacity: 0;
+}
+//出现后的位置
+.popup-slide-up-enter-to,
+.popup-slide-up-leave {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 .slide-right-enter,

@@ -62,6 +62,19 @@ export default {
         event.preventDefault();
         event.stopPropagation();
       });
+      // rendition的钩子函数 //路径地址 192.168.2.22/font/default.css
+      this.rendition.hooks.content.register(contents => {
+        Promise.all([
+          // contents.addStylesheet(
+          //   `${process.env.VUE_APP_RES_URL}/fonts/daysOne.css`
+          // ),
+          contents.addStylesheet("http://192.168.8.93:8000/fonts/Arial.css"),
+          contents.addStylesheet("http://192.168.8.93:8000/fonts/bebas.css"),
+          contents.addStylesheet("http://192.168.8.93:8000/fonts/gaobai.css"),
+          contents.addStylesheet("http://192.168.8.93:8000/fonts/hksn.css"),
+          contents.addStylesheet("http://192.168.8.93:8000/fonts/xiaolong.css")
+        ]).then(() => {});
+      });
     },
     prevPage() {
       if (this.rendition) {
@@ -83,6 +96,7 @@ export default {
       console.log("切换标题和菜单栏");
       if (this.menuVisible) {
         this.setSettingVisible(-1); //隐藏字号设置面板
+        this.setFontFamilyVisible(false);
       }
       this.setMenuVisible(!this.menuVisible);
     }
