@@ -130,6 +130,7 @@ const messages = {
     selectFont: "选择字体",
     haveRead: "已读$1分钟",
     themeDefault: "默认",
+    themeWhite: "白静",
     themeGold: "雅致",
     themeEye: "护眼",
     themeNight: "夜间",

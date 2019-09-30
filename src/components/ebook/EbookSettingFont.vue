@@ -109,7 +109,6 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #fff;
   height: 100px;
   box-shadow: 0 -8px 8px rgba(0, 0, 0, 0.15);
   .setting-font-size {

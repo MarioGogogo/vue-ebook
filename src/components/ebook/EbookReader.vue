@@ -1,5 +1,5 @@
 <template>
-  <div class="ebook-read">
+  <div class="ebook-reader">
     <div id="read"></div>
   </div>
 </template>
@@ -37,6 +37,7 @@ export default {
       });
 
       this.rendition.display().then(() => {
+        this.initTheme();
         this.initFontFamily();
         this.initFontSize();
       });
@@ -87,6 +88,14 @@ export default {
           console.log("字体加载完");
         });
       });
+    },
+    //注册主题
+    initTheme() {
+      this.themeList.forEach(item => {
+        this.rendition.themes.register(item.name, item.style);
+      });
+      //默认主题
+      this.rendition.themes.select(this.defaultTheme);
     },
     //初始化字体设置
     initFontFamily() {
@@ -148,10 +157,17 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/styles/global.scss";
-.ebook-read {
-  margin-top: 40px;
-}
-#read {
-  border: 1px solid red;
+.ebook-reader {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .ebook-reader-mask {
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

@@ -68,7 +68,6 @@ export default {
   outline: 1px solid rgb(241, 135, 135);
 }
 .ebook-popup-list {
-  background-color: #fff;
   position: absolute;
   bottom: 0;
   left: 0;
