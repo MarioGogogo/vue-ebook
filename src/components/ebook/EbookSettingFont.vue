@@ -1,3 +1,6 @@
+/** * @Author: lovewcc * @Date: 2019-09-29T22:46:59+08:00 * @Last modified by:
+lovewcc * @Last modified time: 2019-10-01T00:45:21+08:00 */
+
 <template>
   <transition name="slide-up">
     <div class="setting-wrapper" v-show="menuVisible && settingVisible === 0">
@@ -28,7 +31,7 @@
       </div>
       <div class="setting-font-family" @click.stop="showFontFamilySetting">
         <div class="setting-font-family-text-wrapper">
-          <span class="setting-font-family-text">{{defaultFontFamily}}</span>
+          <span class="setting-font-family-text">{{ defaultFontFamily }}</span>
         </div>
         <div class="setting-font-family-icon-wrapper">
           <span class="iconfont icon-arrow-ios-forward-outline"></span>
@@ -96,7 +99,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 @import "../../assets/styles/global.scss";
